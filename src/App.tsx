@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// modules
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+
+// components
+import ScrollToTop from 'components/common/scroll-to-top'
+import Home from 'pages/home'
+import Upload from 'pages/store-upload'
+
+// styles
+import GlobalStyles from 'styles/global-styles'
+import { theme } from 'styles/theme'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/upload" element={<Upload />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </>
+  )
 }
 
-export default App;
+export default App
