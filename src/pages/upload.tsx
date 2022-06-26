@@ -16,9 +16,9 @@ function Upload() {
   const navigate = useNavigate()
   const [name, setName] = React.useState<string>('')
   const [type, setType] = React.useState<string>('')
-  const [grade, setGrade] = React.useState<number>(NaN)
-  const [isSeleted, setIsSelected] = React.useState<boolean>(false)
-  const hearts = [1, 2, 3, 4, 5]
+  // const [grade, setGrade] = React.useState<number>(NaN)
+  // const [isSeleted, setIsSelected] = React.useState<boolean>(false)
+  // const hearts = [1, 2, 3, 4, 5]
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -26,21 +26,20 @@ function Upload() {
   const handleType = (event: SelectChangeEvent) => {
     setType(event.target.value)
   }
-  const handleClick = (index: number) => {
-    setGrade(index)
-    setIsSelected(true)
-  }
-  const handleEnter = (index: number) => {
-    setGrade(index)
-  }
-  const handleLeave = () => {
-    setGrade(NaN)
-  }
+  // const handleClick = (index: number) => {
+  //   setGrade(index)
+  //   setIsSelected(true)
+  // }
+  // const handleEnter = (index: number) => {
+  //   setGrade(index)
+  // }
+  // const handleLeave = () => {
+  //   setGrade(NaN)
+  // }
   const handleSubmit = () => {
     const store = {
       name,
-      type,
-      grade
+      type
     }
     fetch(`${process.env.REACT_APP_SERVER_URL}/store`, {
       method: 'POST',
@@ -84,7 +83,7 @@ function Upload() {
           </Select>
         </FormControl>
       </ItemStyle>
-      <ItemStyle>
+      {/* <ItemStyle>
         <Title>평점</Title>
         <MapWrapper>
           {hearts.map((length) => {
@@ -115,7 +114,7 @@ function Upload() {
             )
           })}
         </MapWrapper>
-      </ItemStyle>
+      </ItemStyle> */}
       <ItemStyle>
         <Button variant="contained" onClick={() => handleSubmit()}>
           맛집 등록

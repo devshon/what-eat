@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import styled from 'styled-components'
+
 import { Button } from '@mui/material'
 
 function Home() {
@@ -127,7 +127,7 @@ function Home() {
           </div>
           <div>
             <span>{randomData.type}</span>
-            <span>❤️ X {randomData.grade}</span>
+            {/* <span>❤️ X {randomData.grade}</span> */}
           </div>
         </StoreWrapper>
       )}
